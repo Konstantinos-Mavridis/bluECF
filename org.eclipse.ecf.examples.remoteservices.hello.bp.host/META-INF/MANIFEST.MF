@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ECF RemoteServices Hello-example Host using Gemini Blueprint
+Bundle-SymbolicName: org.eclipse.ecf.examples.remoteservices.hello.bp.host;singleton:=true
+Bundle-Version: 3.0.0.qualifier
+Bundle-Vendor: Konstantinos Mavridis
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7,
+ JavaSE-1.6,
+ J2SE-1.5,
+ J2SE-1.4,
+ CDC-1.1/Foundation-1.1
+Import-Package: org.eclipse.ecf.examples.remoteservices.hello;version="3.0.0",
+ org.eclipse.equinox.app;version="1.1.0"
+Bundle-Blueprint: OSGI-INF/hello.xml
+Bundle-Localization: bundle
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.equinox.common;bundle-version="3.6.0"

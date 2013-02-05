@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension
+         id="HelloHost"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="*"
+            thread="any"
+            visible="true">
+         <run
+               class="org.eclipse.ecf.examples.internal.remoteservices.hello.bp.host.HelloApplication">
+         </run>
+      </application>
+   </extension>
+
+</plugin>

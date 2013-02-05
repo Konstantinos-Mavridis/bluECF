@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" default-activation="eager">
+    <bean id="host" class="org.eclipse.ecf.examples.internal.remoteservices.hello.bp.host.HelloBean"/>
+
+    <service ref="host" interface="org.eclipse.ecf.examples.remoteservices.hello.IHello">
+        <service-properties>
+			<entry key="service.exported.interfaces" value="*" />
+			<entry key="service.exported.configs" value="ecf.generic.server" />
+			<entry key="org.eclipse.ecf.containerFactoryArgs" value="ecftcp://localhost:3787/server" />
+        </service-properties>
+    </service>
+</blueprint>

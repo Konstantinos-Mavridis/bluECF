@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ECF RemoteServices Hello-example Consumer using Gemini Blueprint
+Bundle-SymbolicName: org.eclipse.ecf.examples.remoteservices.hello.bp.consumer;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Vendor: Konstantinos Mavridis
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7,
+ JavaSE-1.6,
+ J2SE-1.5,
+ J2SE-1.4,
+ CDC-1.1/Foundation-1.1
+Import-Package: org.eclipse.ecf.examples.remoteservices.hello;version="3.0.0",
+ org.eclipse.ecf.remoteservice,
+ org.eclipse.ecf.remoteservice.events,
+ org.eclipse.equinox.app;version="1.0.0",
+ org.eclipse.equinox.concurrent.future;version="1.0.0"
+Bundle-Blueprint: OSGI-INF/helloclient.xml
+Bundle-Localization: bundle
+Export-Package: org.eclipse.ecf.examples.internal.remoteservices.hello.bp.consumer
+Require-Bundle: org.eclipse.equinox.common
