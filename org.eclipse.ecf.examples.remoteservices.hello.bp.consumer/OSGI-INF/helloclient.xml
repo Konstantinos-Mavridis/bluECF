@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" default-activation="eager">
-    <bean id="consumer" class="org.eclipse.ecf.examples.internal.remoteservices.hello.bp.consumer.HelloClientBean"/>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-2.0.xsd">
 
-    <service ref="consumer" auto-export="all-classes" depends-on="host"/>
-    
-    <reference id="host" interface="org.eclipse.ecf.examples.remoteservices.hello.IHello" availability="mandatory">
-		<reference-listener bind-method="bindHello">
-			<ref component-id="consumer" />
-		</reference-listener>
-	</reference>
-</blueprint>
+	<bean id="consumer" class="org.eclipse.ecf.examples.internal.remoteservices.hello.bp.consumer.HelloClientBean" />
+
+	<osgi:service ref="consumer" interface="org.eclipse.ecf.examples.remoteservices.hello.IHello" depends-on="host" />
+	
+	<osgi:reference id="host" cardinality="1..1">
+		<osgi:interfaces>
+			<value>org.eclipse.ecf.examples.remoteservices.hello.IHello</value>
+			<value>org.eclipse.ecf.remoteservice.IRemoteServiceProxy</value>
+		</osgi:interfaces>
+		<osgi:listener bind-method="bindHello">
+			<ref bean="consumer" />
+		</osgi:listener>
+	</osgi:reference>
+</beans>
